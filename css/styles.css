@@ -1,0 +1,29 @@
+/*body {
+  background-color: lightgrey;
+}*/
+
+div#game-board {
+  margin-left: 20%;
+  height: 612px;
+  width: 714px;
+  border: 1px solid black;
+}
+
+div.col {
+  display: inline-block;
+  float: left;
+}
+
+div.cell {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+div.player1 {
+  background-color: red;
+}
+
+div.player2 {
+  background-color: black;
+}

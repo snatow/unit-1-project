@@ -21,7 +21,7 @@
 #Bonus Features
 - on page load - form that allows both players to submit their names
 
-- once submit button is clicked, the form dissapears and the game board is generated with 6 rows and 7 columns
+- once submit button is clicked, the form dissapears and the game board is generated with 6 rows and 7 columns (numbers for rows, letters for columns)
   - if I am going to render the board once the players have submitted their names, then I can attach this code to a replay button
 
 - scoreboard that tallies the number of wins for each player
@@ -56,3 +56,6 @@ Thursday
 - do you think my plan for gravity is a reasonable one? Any advice for trouble shooting it/building elements that lay over others that house the click handlers?
 - Any thoughts on binding/unbinding click handlers? I have a hard time working around a removed event handler and reattaching it to restart a game
 - Any strategies for working around hard coding the check win function? I think I can use some of the logic I employed for tic tac toe, but I would like to try to make this more efficient
+
+#Images and other Assets
+http://www.nonkit.com/smallbasic.files/Connect4Board.png
