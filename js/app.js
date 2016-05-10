@@ -132,8 +132,8 @@ var $win68 = [$5D, $4E, $3F, $2G];
 var $win69 = [$4D, $3E, $2F, $1G];
 
 //players
-var $player1 = "you";
-var $player2 = "me";
+var $player1;
+var $player2;
 
 //variable to see if a player has won, and therefore inactivate the board
 var someoneHasWon = 0;
@@ -142,13 +142,14 @@ var someoneHasWon = 0;
 var $click = 0;
 
 //submit button on form - not currently working
-$("button").click(function() {
+$("#submit-button").click(function(event) {
+  event.preventDefault()
   $player1 = $("#P1").val();
   $player2 = $("#P2").val();
-  return player1;
-  return player2;
-  console.log(player1);
-  console.log(player2);
+  console.log($player1);
+  console.log($player2);
+  return $player1;
+  return $player2;
 });
 
 //=================================================================================
@@ -160,7 +161,7 @@ $("#colA").click(function() {
   // console.log("click");
   if (someoneHasWon == 1) {
     console.log("game is over");
-  } else {
+  //} else {
       // puts into action moves for player 2 (all even turns)
     if ($click%2 === 0) {
       for (var i = 0; i < $columnA.length; i++) {
