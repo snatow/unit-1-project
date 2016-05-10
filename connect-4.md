@@ -39,7 +39,7 @@ Tuesday
 
 Wednesday
 - finish work on gravity - test extensively (done)
-- hard code long version of win check - if time start more elegant version
+- hard code long version of win check (done) - if time start more elegant version
 
 Thursday
 - finish win check function
