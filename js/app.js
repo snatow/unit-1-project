@@ -148,7 +148,9 @@ $("button").click(function() {
   console.log(player2);
 });
 
+//=================================================================================
 //how players interact with the board
+
 $("#colA").click(function() {
   $click += 1;
   console.log("click");
@@ -158,6 +160,7 @@ $("#colA").click(function() {
         console.log("no move here");
       } else {
         $columnA[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -167,6 +170,7 @@ $("#colA").click(function() {
         console.log("no move here");
       } else {
         $columnA[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
@@ -182,6 +186,7 @@ $("#colB").click(function() {
         console.log("no move here");
       } else {
         $columnB[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -191,6 +196,7 @@ $("#colB").click(function() {
         console.log("no move here");
       } else {
         $columnB[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
@@ -206,6 +212,7 @@ $("#colC").click(function() {
         console.log("no move here");
       } else {
         $columnC[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -215,6 +222,7 @@ $("#colC").click(function() {
         console.log("no move here");
       } else {
         $columnC[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
@@ -230,6 +238,7 @@ $("#colD").click(function() {
         console.log("no move here");
       } else {
         $columnD[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -239,11 +248,12 @@ $("#colD").click(function() {
         console.log("no move here");
       } else {
         $columnD[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
   }
-})
+});
 
 $("#colE").click(function() {
   $click += 1;
@@ -254,6 +264,7 @@ $("#colE").click(function() {
         console.log("no move here");
       } else {
         $columnE[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -263,11 +274,12 @@ $("#colE").click(function() {
         console.log("no move here");
       } else {
         $columnE[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
   }
-})
+});
 
 $("#colF").click(function() {
   $click += 1;
@@ -278,6 +290,7 @@ $("#colF").click(function() {
         console.log("no move here");
       } else {
         $columnF[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -287,11 +300,12 @@ $("#colF").click(function() {
         console.log("no move here");
       } else {
         $columnF[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
   }
-})
+});
 
 $("#colG").click(function() {
   $click += 1;
@@ -302,6 +316,7 @@ $("#colG").click(function() {
         console.log("no move here");
       } else {
         $columnG[i].addClass("player2");
+        $winCheck();
         break;
       }
     }
@@ -311,8 +326,42 @@ $("#colG").click(function() {
         console.log("no move here");
       } else {
         $columnG[j].addClass("player1");
+        $winCheck();
         break;
       }
     }
   }
-})
+});
+
+//=================================================================================
+//how to check for a winner
+
+var $containsP1 = function(element) {
+  if (element.hasClass("player1")) {
+    return true;
+  }
+};
+
+var $containsP2 = function(element) {
+  if (element.hasClass("player2")) {
+    return true;
+  }
+}
+
+var $winCheck = function() {
+  if ($click < 7) {
+    console.log("not enough moves");
+  } else {
+    console.log("winning");
+    if ($win25.filter($containsP1).length == 4) {
+      alert("player 1 has won!");
+    } else if ($win25.filter($containsP2).length == 4) {
+      alert("player 2 has won!");
+    }
+  }
+}
+
+
+
+
+
