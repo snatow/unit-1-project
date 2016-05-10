@@ -42,7 +42,7 @@ Wednesday
 - hard code long version of win check (done) - if time start more elegant version
 
 Thursday
-- finish win check function
+- finish elegant win check function
 - more css to style game
 - tie board generation to start/reset button
 
