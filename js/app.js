@@ -153,19 +153,21 @@ $("#colA").click(function() {
   $click += 1;
   console.log("click");
   if ($click%2 === 0) {
-    for (var i = 0, i < $columnA.length; i++) {
+    for (var i = 0; i < $columnA.length; i++) {
       if ($columnA[i].hasClass("player1") || $columnA[i].hasClass("player2")) {
         console.log("no move here");
       } else {
         $columnA[i].addClass("player2");
+        break;
       }
     }
   } else if ($click%2 !==0 ) {
-    for (var j = 0, j < $columnA.length; j++) {
+    for (var j = 0; j < $columnA.length; j++) {
       if ($columnA[j].hasClass("player1") || $columnA[j].hasClass("player2")) {
         console.log("no move here");
       } else {
-        $columnA[i].addClass("player1");
+        $columnA[j].addClass("player1");
+        break;
       }
     }
   }
