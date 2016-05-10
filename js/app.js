@@ -51,6 +51,15 @@ var $4G = $("#4G");
 var $5G = $("#5G");
 var $6G = $("#6G");
 
+//columns - to use to fill in cells
+var $columnA = [$1A, $2A, $3A, $4A, $5A, $6A];
+var $columnB = [$1B, $2B, $3B, $4B, $5B, $6B];
+var $columnC = [$1C, $2C, $3C, $4C, $5C, $6C];
+var $columnD = [$1D, $2D, $3D, $4D, $5D, $6D];
+var $columnE = [$1E, $2E, $3E, $4E, $5E, $6E];
+var $columnF = [$1F, $2F, $3F, $4F, $5F, $6F];
+var $columnG = [$1G, $2G, $3G, $4G, $5G, $6G];
+
 //winning conditions
 var $win01 = [$1A, $1B, $1C, $1D];
 var $win02 = [$2A, $2B, $2C, $2D];
@@ -122,10 +131,14 @@ var $win67 = [$6D, $5E, $4F, $3G];
 var $win68 = [$5D, $4E, $3F, $2G];
 var $win69 = [$4D, $3E, $2F, $1G];
 
-
+//players
 var player1;
 var player2;
 
+//click counter
+var $click = 0;
+
+//submit button on form - not currently working
 $("button").click(function() {
   player1 = $("#P1").val();
   player2 = $("#P2").val();
@@ -135,5 +148,55 @@ $("button").click(function() {
   console.log(player2);
 });
 
+//how players interact with the board
+$("#colA").click(function() {
+  $click += 1;
+  console.log("click");
+  if ($click%2 === 0) {
+    for (var i = 0, i < $columnA.length; i++) {
+      if ($columnA[i].hasClass("player1") || $columnA[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnA[i].addClass("player2");
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0, j < $columnA.length; j++) {
+      if ($columnA[j].hasClass("player1") || $columnA[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnA[i].addClass("player1");
+      }
+    }
+  }
+})
 
+$("#colB").click(function() {
+  $click += 1;
+  console.log("click");
+})
 
+$("#colC").click(function() {
+  $click += 1;
+  console.log("click");
+})
+
+$("#colD").click(function() {
+  $click += 1;
+  console.log("click");
+})
+
+$("#colE").click(function() {
+  $click += 1;
+  console.log("click");
+})
+
+$("#colF").click(function() {
+  $click += 1;
+  console.log("click");
+})
+
+$("#colG").click(function() {
+  $click += 1;
+  console.log("click");
+})
