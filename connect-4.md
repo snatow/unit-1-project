@@ -32,7 +32,7 @@
 (this is all in a perfect world, as I would like to be able to have the board generate itself upon button click so that the game can be replayed over and over)
 Tuesday
 - basic html and css to see the game board (done)
-- function to capture names of players
+- function to capture names of players (done)
 - ability to remove form from window
 - hard coded elements for winning conditions (done)
 - start work on gravity (done)
