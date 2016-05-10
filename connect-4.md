@@ -35,10 +35,10 @@ Tuesday
 - function to capture names of players
 - ability to remove form from window
 - hard coded elements for winning conditions (done)
-- start work on gravity
+- start work on gravity (done)
 
 Wednesday
-- finish work on gravity - test extensively
+- finish work on gravity - test extensively (done)
 - hard code long version of win check - if time start more elegant version
 
 Thursday

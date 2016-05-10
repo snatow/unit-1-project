@@ -171,34 +171,148 @@ $("#colA").click(function() {
       }
     }
   }
-})
+});
 
 $("#colB").click(function() {
   $click += 1;
   console.log("click");
-})
+  if ($click%2 === 0) {
+    for (var i = 0; i < $columnB.length; i++) {
+      if ($columnB[i].hasClass("player1") || $columnB[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnB[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnB.length; j++) {
+      if ($columnB[j].hasClass("player1") || $columnB[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnB[j].addClass("player1");
+        break;
+      }
+    }
+  }
+});
 
 $("#colC").click(function() {
   $click += 1;
   console.log("click");
-})
+  if ($click%2 === 0) {
+    for (var i = 0; i < $columnC.length; i++) {
+      if ($columnC[i].hasClass("player1") || $columnC[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnC[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnC.length; j++) {
+      if ($columnC[j].hasClass("player1") || $columnC[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnC[j].addClass("player1");
+        break;
+      }
+    }
+  }
+});
 
 $("#colD").click(function() {
   $click += 1;
   console.log("click");
+  if ($click%2 === 0) {
+    for (var i = 0; i < $columnD.length; i++) {
+      if ($columnD[i].hasClass("player1") || $columnD[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnD[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnD.length; j++) {
+      if ($columnD[j].hasClass("player1") || $columnD[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnD[j].addClass("player1");
+        break;
+      }
+    }
+  }
 })
 
 $("#colE").click(function() {
   $click += 1;
   console.log("click");
+    if ($click%2 === 0) {
+    for (var i = 0; i < $columnE.length; i++) {
+      if ($columnE[i].hasClass("player1") || $columnE[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnE[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnE.length; j++) {
+      if ($columnE[j].hasClass("player1") || $columnE[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnE[j].addClass("player1");
+        break;
+      }
+    }
+  }
 })
 
 $("#colF").click(function() {
   $click += 1;
   console.log("click");
+  if ($click%2 === 0) {
+    for (var i = 0; i < $columnF.length; i++) {
+      if ($columnF[i].hasClass("player1") || $columnF[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnF[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnF.length; j++) {
+      if ($columnF[j].hasClass("player1") || $columnF[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnF[j].addClass("player1");
+        break;
+      }
+    }
+  }
 })
 
 $("#colG").click(function() {
   $click += 1;
   console.log("click");
+  if ($click%2 === 0) {
+    for (var i = 0; i < $columnG.length; i++) {
+      if ($columnG[i].hasClass("player1") || $columnG[i].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnG[i].addClass("player2");
+        break;
+      }
+    }
+  } else if ($click%2 !==0 ) {
+    for (var j = 0; j < $columnG.length; j++) {
+      if ($columnG[j].hasClass("player1") || $columnG[j].hasClass("player2")) {
+        console.log("no move here");
+      } else {
+        $columnG[j].addClass("player1");
+        break;
+      }
+    }
+  }
 })
