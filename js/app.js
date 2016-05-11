@@ -159,23 +159,32 @@ $("#submit-button").click(function(event) {
 //=================================================================================
 //how players interact with the board
 
+//this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
+
 $(".col").click(function() {
+  //increase turn count, move from player 1 to player 2 and vice versa
   $click += 1;
   // console.log($(this));
   // console.log($(this).children("div").length);
+  //if someoneHasWon is set to 1, one of the players has created a winning combination, and game play should stop
   if (someoneHasWon == 1) {
     // console.log("game is over");
   } else {
-    var $columnReverse = $(this).children("div").get().reverse();
+    //gets an array of all of the elements in the column clicked and then reverses their order so we can iterate over the column from the bottom up and not the top down
+    var columnReverse = $(this).children("div").get().reverse();
     // console.log($columnReverse[0]);
+    // puts into action moves for player 2 (all even turns)
     if ($click%2 === 0) {
       $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnReverse.length; i++) {
-        if ($($columnReverse[i]).hasClass("player1") || $($columnReverse[i]).hasClass("player2")) {
+      for (var i = 0; i < columnReverse.length; i++) {
+        // accounts for cells already containing player avatars
+        if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
           // console.log("no move here");
         } else {
-          $($columnReverse[i]).addClass("player2");
+          //assigns player 2 avatar to lowest available cell in column
+          $(columnReverse[i]).addClass("player2");
           $winCheck();
+          //removes click handler if 6 avatars have been added to this column
           if (i == 5) {
             $(this).unbind("click");
           }
@@ -184,13 +193,16 @@ $(".col").click(function() {
       }
     } else if ($click%2 !==0 ) {
       $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnReverse.length; j++) {
+      for (var j = 0; j < columnReverse.length; j++) {
         // console.log($columnReverse[j]);
-        if ($($columnReverse[j]).hasClass("player1") || $($columnReverse[j]).hasClass("player2")) {
+        // accounts for cells already containing player avatars
+        if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
           // console.log("no move here");
         } else {
-          $($columnReverse[j]).addClass("player1");
+          //assigns player 1 avatar to lowest available cell in column
+          $(columnReverse[j]).addClass("player1");
           $winCheck();
+          //removes click handler if 6 avatars have been added to this column
           if (j == 5) {
             $(this).unbind("click");
           }
