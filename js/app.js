@@ -1,5 +1,6 @@
 // console.log("working");
 
+//put in widow.onload at the end!!!!!
 
 //cells
 var $1A = $("#1A");
@@ -158,67 +159,22 @@ $("#submit-button").click(function(event) {
 //=================================================================================
 //how players interact with the board
 
-$("#colA").click(function() {
-  //increase turn count, move from player 1 to player 2 and vice versa
+$(".col").click(function() {
   $click += 1;
-  // console.log("click");
+  // console.log($(this));
+  // console.log($(this).children("div").length);
   if (someoneHasWon == 1) {
     // console.log("game is over");
   } else {
-      // puts into action moves for player 2 (all even turns)
+    var $columnReverse = $(this).children("div").get().reverse();
+    // console.log($columnReverse[0]);
     if ($click%2 === 0) {
       $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnA.length; i++) {
-        // accounts for cells already containing player avatars
-        if ($columnA[i].hasClass("player1") || $columnA[i].hasClass("player2")) {
+      for (var i = 0; i < $columnReverse.length; i++) {
+        if ($($columnReverse[i]).hasClass("player1") || $($columnReverse[i]).hasClass("player2")) {
           // console.log("no move here");
         } else {
-          //assigns player 2 avatar to lowest available cell in column
-          $columnA[i].addClass("player2");
-          $winCheck();
-          //removes click handler if 6 avatars have been added to this column
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          //allows computer to leave loop without filling in the rest of the column
-          break;
-        }
-      }
-      // puts into action moves for player 1 (all odd turns)
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnA.length; j++) {
-        if ($columnA[j].hasClass("player1") || $columnA[j].hasClass("player2")) {
-          console.log("no move here");
-        } else {
-          //assigns player 1 avatar to lowest available cell in column
-          $columnA[j].addClass("player1");
-          $winCheck();
-          //removes click handler if 6 avatars have been added to this column
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          //allows computer to leave loop without filling in the rest of the column
-          break;
-        }
-      }
-    }
-  }
-});
-
-$("#colB").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-    if ($click%2 === 0) {
-      $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnB.length; i++) {
-        if ($columnB[i].hasClass("player1") || $columnB[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnB[i].addClass("player2");
+          $($columnReverse[i]).addClass("player2");
           $winCheck();
           if (i == 5) {
             $(this).unbind("click");
@@ -228,11 +184,12 @@ $("#colB").click(function() {
       }
     } else if ($click%2 !==0 ) {
       $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnB.length; j++) {
-        if ($columnB[j].hasClass("player1") || $columnB[j].hasClass("player2")) {
+      for (var j = 0; j < $columnReverse.length; j++) {
+        // console.log($columnReverse[j]);
+        if ($($columnReverse[j]).hasClass("player1") || $($columnReverse[j]).hasClass("player2")) {
           // console.log("no move here");
         } else {
-          $columnB[j].addClass("player1");
+          $($columnReverse[j]).addClass("player1");
           $winCheck();
           if (j == 5) {
             $(this).unbind("click");
@@ -244,195 +201,284 @@ $("#colB").click(function() {
   }
 });
 
-$("#colC").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-    if ($click%2 === 0) {
-      $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnC.length; i++) {
-        if ($columnC[i].hasClass("player1") || $columnC[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnC[i].addClass("player2");
-          $winCheck();
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnC.length; j++) {
-        if ($columnC[j].hasClass("player1") || $columnC[j].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnC[j].addClass("player1");
-          $winCheck();
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    }
-  }
-});
+// // for this longer version of the function I have commented what is happening at each step only for the function related to column A. The code is the same for all columns
 
-$("#colD").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-    if ($click%2 === 0) {
-      $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnD.length; i++) {
-        if ($columnD[i].hasClass("player1") || $columnD[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnD[i].addClass("player2");
-          $winCheck();
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnD.length; j++) {
-        if ($columnD[j].hasClass("player1") || $columnD[j].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnD[j].addClass("player1");
-          $winCheck();
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    }
-  }
-});
+// $("#colA").click(function() {
+//   //increase turn count, move from player 1 to player 2 and vice versa
+//   $click += 1;
+//   // console.log("click");
+//   //if someoneHasWon is set to 1, one of the players has created a winning combination, and game play should stop
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//       // puts into action moves for player 2 (all even turns)
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnA.length; i++) {
+//         // accounts for cells already containing player avatars
+//         if ($columnA[i].hasClass("player1") || $columnA[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           //assigns player 2 avatar to lowest available cell in column
+//           $columnA[i].addClass("player2");
+//           $winCheck();
+//           //removes click handler if 6 avatars have been added to this column
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           //allows computer to leave loop without filling in the rest of the column
+//           break;
+//         }
+//       }
+//       // puts into action moves for player 1 (all odd turns)
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnA.length; j++) {
+//         if ($columnA[j].hasClass("player1") || $columnA[j].hasClass("player2")) {
+//           console.log("no move here");
+//         } else {
+//           //assigns player 1 avatar to lowest available cell in column
+//           $columnA[j].addClass("player1");
+//           $winCheck();
+//           //removes click handler if 6 avatars have been added to this column
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           //allows computer to leave loop without filling in the rest of the column
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
 
-$("#colE").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-      if ($click%2 === 0) {
-        $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnE.length; i++) {
-        if ($columnE[i].hasClass("player1") || $columnE[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnE[i].addClass("player2");
-          $winCheck();
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnE.length; j++) {
-        if ($columnE[j].hasClass("player1") || $columnE[j].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnE[j].addClass("player1");
-          $winCheck();
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    }
-  }
-});
+// $("#colB").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnB.length; i++) {
+//         if ($columnB[i].hasClass("player1") || $columnB[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnB[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnB.length; j++) {
+//         if ($columnB[j].hasClass("player1") || $columnB[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnB[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
 
-$("#colF").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-    if ($click%2 === 0) {
-      $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnF.length; i++) {
-        if ($columnF[i].hasClass("player1") || $columnF[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnF[i].addClass("player2");
-          $winCheck();
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnF.length; j++) {
-        if ($columnF[j].hasClass("player1") || $columnF[j].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnF[j].addClass("player1");
-          $winCheck();
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    }
-  }
-});
+// $("#colC").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnC.length; i++) {
+//         if ($columnC[i].hasClass("player1") || $columnC[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnC[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnC.length; j++) {
+//         if ($columnC[j].hasClass("player1") || $columnC[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnC[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
 
-$("#colG").click(function() {
-  $click += 1;
-  // console.log("click");
-  if (someoneHasWon == 1) {
-    // console.log("game is over");
-  } else {
-    if ($click%2 === 0) {
-      $("h1").html($player1 + ", it's your turn")
-      for (var i = 0; i < $columnG.length; i++) {
-        if ($columnG[i].hasClass("player1") || $columnG[i].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnG[i].addClass("player2");
-          $winCheck();
-          if (i == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    } else if ($click%2 !==0 ) {
-      $("h1").html($player2 + ", it's your turn")
-      for (var j = 0; j < $columnG.length; j++) {
-        if ($columnG[j].hasClass("player1") || $columnG[j].hasClass("player2")) {
-          // console.log("no move here");
-        } else {
-          $columnG[j].addClass("player1");
-          $winCheck();
-          if (j == 5) {
-            $(this).unbind("click");
-          }
-          break;
-        }
-      }
-    }
-  }
-});
+// $("#colD").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnD.length; i++) {
+//         if ($columnD[i].hasClass("player1") || $columnD[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnD[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnD.length; j++) {
+//         if ($columnD[j].hasClass("player1") || $columnD[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnD[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
+
+// $("#colE").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//       if ($click%2 === 0) {
+//         $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnE.length; i++) {
+//         if ($columnE[i].hasClass("player1") || $columnE[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnE[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnE.length; j++) {
+//         if ($columnE[j].hasClass("player1") || $columnE[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnE[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
+
+// $("#colF").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnF.length; i++) {
+//         if ($columnF[i].hasClass("player1") || $columnF[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnF[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnF.length; j++) {
+//         if ($columnF[j].hasClass("player1") || $columnF[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnF[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
+
+// $("#colG").click(function() {
+//   $click += 1;
+//   // console.log("click");
+//   if (someoneHasWon == 1) {
+//     // console.log("game is over");
+//   } else {
+//     if ($click%2 === 0) {
+//       $("h1").html($player1 + ", it's your turn")
+//       for (var i = 0; i < $columnG.length; i++) {
+//         if ($columnG[i].hasClass("player1") || $columnG[i].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnG[i].addClass("player2");
+//           $winCheck();
+//           if (i == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     } else if ($click%2 !==0 ) {
+//       $("h1").html($player2 + ", it's your turn")
+//       for (var j = 0; j < $columnG.length; j++) {
+//         if ($columnG[j].hasClass("player1") || $columnG[j].hasClass("player2")) {
+//           // console.log("no move here");
+//         } else {
+//           $columnG[j].addClass("player1");
+//           $winCheck();
+//           if (j == 5) {
+//             $(this).unbind("click");
+//           }
+//           break;
+//         }
+//       }
+//     }
+//   }
+// });
 
 //=================================================================================
 //how to check for a winner
