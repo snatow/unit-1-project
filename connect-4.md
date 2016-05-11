@@ -39,8 +39,8 @@ Tuesday
 
 Wednesday
 - finish work on gravity - test extensively (done)
-- hard code long version of win check (done) - if time start more elegant version
-- finish elegant win check function
+- hard code long version of win check (done) - if time start more elegant version (done)
+- finish elegant win check function (done)
 
 Thursday
 - more css to style game - animate pieces being added to the board

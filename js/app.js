@@ -513,24 +513,32 @@ var $containsP2 = function(element) {
   }
 }
 
-//more efficient win check
+//more efficient win check - uses 20 lines of code vs. 424 for the long version
 var $winCheck = function() {
+  //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
   if ($click < 7) {
-    console.log("not enough moves");
+    // console.log("not enough moves");
+    //checking for a win after 7 moves
   } else if (6 < $click && $click < 42) {
-    console.log("enough moves");
+    // console.log("enough moves");
+    //iterating through the multidimentional array that houses all of the winning condition arrays
     for (var i = 0; i < $allPossibleWins.length; i++) {
       // console.log($allPossibleWins[i]);
+      //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
       var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
       var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+      //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
       if ($winnerPlayer1 == 4) {
         $("h1").html($player1 + " has won!");
+        //prevents further moves on the board if player 1 wins
         someoneHasWon = 1;
       } else if ($winnerPlayer2 == 4) {
         $("h1").html($player2 + " has won!");
+        //prevents further moves on the board if player 2 wins
         someoneHasWon = 1;
       } 
     }
+    //if all of the pieces are in play and there is no win, you have a tie
   } else if (41 < $click) {
     //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
     $("h1").html("The players have tied");
