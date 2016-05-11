@@ -145,7 +145,13 @@ var someoneHasWon = 0;
 //click counter
 var $click = 0;
 
-//submit button on form - not currently working
+//to hide the form
+var $hideForm = function() {
+  var $form = $("#form");
+  $form.hide();
+}
+
+//submit button on form 
 $("#submit-button").click(function(event) {
   event.preventDefault()
   $player1 = $("#P1").val().toUpperCase();
@@ -155,9 +161,19 @@ $("#submit-button").click(function(event) {
   $("h1").html($player1 + ", it's your turn")
   return $player1;
   return $player2;
+  var form = document.getElementById("form");
+  //$hideForm;
   //trying to get the form to dissappear on click, this doesn't work
   // $("#form").css("visibility", hidden);
+  //event.target.style.display = "none";
+  //$("#form").hide();
 });
+
+//reset button to clear board without clearing the players
+$("#reset-button").click(function(event) {
+
+})
+
 
 //=================================================================================
 //how players interact with the board
@@ -188,9 +204,10 @@ $(".col").click(function() {
           //assigns player 2 avatar to lowest available cell in column
           $(columnReverse[i]).addClass("player2");
           $winCheck();
-          //removes click handler if 6 avatars have been added to this column
           if (i == 5) {
+            //removes click handler if 6 avatars have been added to this column
             $(this).unbind("click");
+            $(this).addClass("full");
           }
           break;
         }
@@ -206,9 +223,10 @@ $(".col").click(function() {
           //assigns player 1 avatar to lowest available cell in column
           $(columnReverse[j]).addClass("player1");
           $winCheck();
-          //removes click handler if 6 avatars have been added to this column
           if (j == 5) {
+            //removes click handler if 6 avatars have been added to this column
             $(this).unbind("click");
+            $(this).addClass("full");
           }
           break;
         }

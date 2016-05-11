@@ -36,3 +36,8 @@ h1 {
 #name1 {
   margin-left: 30%;
 }
+
+#reset-button {
+  margin-left: 48%;
+  margin-bottom: 10px;
+}
