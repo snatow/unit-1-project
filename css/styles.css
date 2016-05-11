@@ -23,10 +23,21 @@ div.cell {
 
 div.player1 {
   background-image: url(images/red-circle.png);
+  animation-name: drop;
+  animation-duration: .25s;
+  animation-timing-function: linear;
+}
+
+@keyframes drop {
+  0% {transform: translateY(-200px);}
+  100% {transform: translateY(0px);}
 }
 
 div.player2 {
   background-image: url(images/black-circle.png);
+  animation-name: drop;
+  animation-duration: .25s;
+  animation-timing-function: linear;
 }
 
 h1 {
@@ -40,4 +51,8 @@ h1 {
 #reset-button {
   margin-left: 48%;
   margin-bottom: 10px;
+}
+
+#submit-button:hover {
+  background-color: red;
 }
