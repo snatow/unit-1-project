@@ -159,9 +159,9 @@ $("#colA").click(function() {
   //increase turn count, move from player 1 to player 2 and vice versa
   $click += 1;
   // console.log("click");
-  //if (someoneHasWon == 1) {
+  if (someoneHasWon == 1) {
     console.log("game is over");
-  //} else {
+  } else {
       // puts into action moves for player 2 (all even turns)
     if ($click%2 === 0) {
       for (var i = 0; i < $columnA.length; i++) {
@@ -198,7 +198,7 @@ $("#colA").click(function() {
         }
       }
     }
-  //}
+  }
 });
 
 $("#colB").click(function() {
