@@ -3,10 +3,11 @@
 }*/
 
 div#game-board {
-  margin-left: 20%;
+  margin-left: 25%;
   height: 612px;
   width: 714px;
-  border: 1px solid black;
+  border: 1px solid #399de3;
+  background-image: url(images/game-board.png);
 }
 
 div.col {
@@ -17,13 +18,21 @@ div.col {
 div.cell {
   height: 100px;
   width: 100px;
-  border: 1px solid black;
+  border: 1px solid #399de3;
 }
 
 div.player1 {
-  background-color: red;
+  background-image: url(images/red-circle.png);
 }
 
 div.player2 {
-  background-color: black;
+  background-image: url(images/black-circle.png);
+}
+
+h1 {
+  text-align: center;
+}
+
+#name1 {
+  margin-left: 30%;
 }
