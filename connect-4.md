@@ -40,10 +40,12 @@ Tuesday
 Wednesday
 - finish work on gravity - test extensively (done)
 - hard code long version of win check (done) - if time start more elegant version
+- finish elegant win check function
 
 Thursday
-- finish elegant win check function
-- more css to style game
+- more css to style game - animate pieces being added to the board
+- readme.md as required by the prompt
+- set up hosting on github
 - tie board generation to start/reset button
 
 #UXUI

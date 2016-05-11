@@ -513,435 +513,462 @@ var $containsP2 = function(element) {
   }
 }
 
-//use filter to see how long the resulting arrays are - if the array has a length of 4, all elements in the array have the player's avatar, and there is a win
-//if a player wins, the function changes the value of someoneHasWon to 1 so that no more moves can be played
+//more efficient win check
 var $winCheck = function() {
   if ($click < 7) {
-    // console.log("not enough moves");
-  } else {
-    // console.log("winning");
-    if ($win01.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win01.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win02.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win02.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win03.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win03.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win04.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win04.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win05.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win05.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win06.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win06.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win07.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win07.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win08.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win08.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win09.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win09.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win10.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win10.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win11.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win11.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win12.filter($containsP1).length == 4) {
-      a$("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win12.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win13.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win13.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win14.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win14.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win15.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win15.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win16.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win16.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win17.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win17.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win18.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win18.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win19.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win19.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win20.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win20.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win21.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win21.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win22.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win22.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win23.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win23.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win24.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win24.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win25.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win25.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win26.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win26.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win27.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win27.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win28.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win28.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win29.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win29.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win30.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win30.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win31.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win31.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win32.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win32.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win33.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win33.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win34.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win34.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win35.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win35.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win36.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win36.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win37.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win37.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win38.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win38.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win39.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win39.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win40.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win40.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win41.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win41.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win42.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win42.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win43.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win43.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win44.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win44.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win45.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win45.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win46.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win46.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win47.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win47.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win48.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win48.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win49.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win49.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win50.filter($containsP1).length == 4) {
-      a$("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win50.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win51.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win51.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win52.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win52.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win53.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win53.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win54.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win54.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win55.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win55.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win56.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win56.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win57.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win57.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win58.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win58.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win59.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win59.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win60.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win60.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win61.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win61.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win62.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win62.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win63.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win63.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win64.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win64.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win65.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win65.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win66.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win66.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win67.filter($containsP1).length == 4) {
-      a$("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win67.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win68.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win68.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win69.filter($containsP1).length == 4) {
-      $("h1").html($player1 + " has won!");
-      someoneHasWon = 1;
-    } else if ($win69.filter($containsP2).length == 4) {
-      $("h1").html($player2 + " has won!");
-      someoneHasWon = 1;
-    } else {
-      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
-      if ($click == 42) {
-        $("h1").html("The players have tied");
-      }
+    console.log("not enough moves");
+  } else if (6 < $click && $click < 42) {
+    console.log("enough moves");
+    for (var i = 0; i < $allPossibleWins.length; i++) {
+      // console.log($allPossibleWins[i]);
+      var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
+      var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+      if ($winnerPlayer1 == 4) {
+        $("h1").html($player1 + " has won!");
+        someoneHasWon = 1;
+      } else if ($winnerPlayer2 == 4) {
+        $("h1").html($player2 + " has won!");
+        someoneHasWon = 1;
+      } 
     }
+  } else if (41 < $click) {
+    //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+    $("h1").html("The players have tied");
   }
-}
+};
+
+
+
+// //this is a really long winded way of checking if there is a winning combination on the board, but it works. 
+// //use filter to see how long the resulting arrays are - if the array has a length of 4, all elements in the array have the player's avatar, and there is a win
+// //if a player wins, the function changes the value of someoneHasWon to 1 so that no more moves can be played
+// var $winCheck = function() {
+//   if ($click < 7) {
+//     // console.log("not enough moves");
+//   } else {
+//     // console.log("winning");
+//     if ($win01.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win01.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win02.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win02.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win03.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win03.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win04.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win04.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win05.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win05.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win06.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win06.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win07.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win07.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win08.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win08.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win09.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win09.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win10.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win10.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win11.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win11.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win12.filter($containsP1).length == 4) {
+//       a$("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win12.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win13.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win13.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win14.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win14.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win15.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win15.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win16.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win16.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win17.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win17.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win18.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win18.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win19.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win19.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win20.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win20.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win21.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win21.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win22.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win22.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win23.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win23.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win24.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win24.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win25.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win25.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win26.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win26.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win27.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win27.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win28.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win28.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win29.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win29.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win30.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win30.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win31.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win31.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win32.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win32.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win33.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win33.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win34.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win34.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win35.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win35.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win36.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win36.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win37.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win37.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win38.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win38.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win39.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win39.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win40.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win40.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win41.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win41.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win42.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win42.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win43.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win43.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win44.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win44.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win45.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win45.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win46.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win46.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win47.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win47.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win48.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win48.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win49.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win49.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win50.filter($containsP1).length == 4) {
+//       a$("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win50.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win51.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win51.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win52.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win52.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win53.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win53.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win54.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win54.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win55.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win55.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win56.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win56.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win57.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win57.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win58.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win58.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win59.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win59.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win60.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win60.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win61.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win61.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win62.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win62.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win63.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win63.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win64.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win64.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win65.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win65.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win66.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win66.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win67.filter($containsP1).length == 4) {
+//       a$("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win67.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win68.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win68.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win69.filter($containsP1).length == 4) {
+//       $("h1").html($player1 + " has won!");
+//       someoneHasWon = 1;
+//     } else if ($win69.filter($containsP2).length == 4) {
+//       $("h1").html($player2 + " has won!");
+//       someoneHasWon = 1;
+//     } else {
+//       //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+//       if ($click == 42) {
+//         $("h1").html("The players have tied");
+//       }
+//     }
+//   }
+// }
 
 
 
