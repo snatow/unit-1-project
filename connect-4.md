@@ -33,7 +33,7 @@
 Tuesday
 - basic html and css to see the game board (done)
 - function to capture names of players (done)
-- ability to remove form from window
+- ability to remove form from window (done)
 - hard coded elements for winning conditions (done)
 - start work on gravity (done)
 
@@ -43,7 +43,7 @@ Wednesday
 - finish elegant win check function (done)
 
 Thursday
-- more css to style game - animate pieces being added to the board
+- more css to style game - animate pieces being added to the board (done)
 - readme.md as required by the prompt
 - set up hosting on github
 - tie board generation to start/reset button

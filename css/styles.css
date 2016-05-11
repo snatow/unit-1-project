@@ -2,30 +2,33 @@
   background-color: lightgrey;
 }*/
 
-div#game-board {
+#game-board {
   margin-left: 25%;
   height: 612px;
   width: 714px;
   border: 1px solid #399de3;
   background-image: url(images/game-board.png);
+  z-index: 999;
+/*  position: fixed;*/
 }
 
-div.col {
+.col {
   display: inline-block;
   float: left;
 }
 
-div.cell {
+.cell {
   height: 100px;
   width: 100px;
   border: 1px solid #399de3;
 }
 
-div.player1 {
+.player1 {
   background-image: url(images/red-circle.png);
   animation-name: drop;
-  animation-duration: .25s;
+  animation-duration: 1s;
   animation-timing-function: linear;
+  z-index: -1;
 }
 
 @keyframes drop {
@@ -36,8 +39,9 @@ div.player1 {
 div.player2 {
   background-image: url(images/black-circle.png);
   animation-name: drop;
-  animation-duration: .25s;
+  animation-duration: 1s;
   animation-timing-function: linear;
+  z-index: -1;
 }
 
 h1 {
