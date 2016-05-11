@@ -132,6 +132,9 @@ var $win67 = [$6D, $5E, $4F, $3G];
 var $win68 = [$5D, $4E, $3F, $2G];
 var $win69 = [$4D, $3E, $2F, $1G];
 
+//multidimentional array for winning conditions
+var $allPossibleWins = [$win01, $win02, $win03, $win04, $win05, $win06, $win07, $win08, $win09, $win10, $win11, $win12, $win13, $win14, $win15, $win16, $win17, $win18, $win19, $win20, $win21, $win22, $win23, $win24, $win25, $win26, $win27, $win28, $win29, $win30, $win31, $win32, $win33, $win34, $win35, $win36, $win37, $win38, $win39, $win40, $win41, $win42, $win43, $win44, $win45, $win46, $win47, $win48, $win49, $win50, $win51, $win52, $win53, $win54, $win55, $win56, $win57, $win58, $win59, $win60, $win61, $win62, $win63, $win64, $win65, $win66, $win67, $win68, $win69]
+
 //players
 var $player1;
 var $player2;
@@ -160,6 +163,7 @@ $("#submit-button").click(function(event) {
 //how players interact with the board
 
 //this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
+//pretty happy that I was able to replace 237 lines of code with 34 . . . .
 
 $(".col").click(function() {
   //increase turn count, move from player 1 to player 2 and vice versa
