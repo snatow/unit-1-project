@@ -156,10 +156,7 @@ $(document).ready(function () {
   //hide reset button until it is needed
   $("#reset-button").hide();
 
-  //activating the game board
-  $(".col").click($gamePlay);
-
-  //actions for submit button on form 
+  //submit button on form 
   $("#submit-button").click(function(event) {
     event.preventDefault();
     //hides the form when button is clicked
@@ -261,6 +258,8 @@ $(document).ready(function () {
     }
   };
 
+  //activate game board
+  $(".col").click($gamePlay);
 
   //this is a version of the game play function above that takes into account the increased click count start if player 2 gets to play first
   var $gamePlay2 = function() {
@@ -356,45 +355,8 @@ $(document).ready(function () {
     }
   };
 
-
-
-  //this version takes into account the increased click count start if player 2 gets to play first
-  var $winCheck = function() {
-    //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
-    if ($click < 8) {
-      // console.log("not enough moves");
-      //checking for a win after 7 moves
-    } else if (7 < $click && $click < 43) {
-      // console.log("enough moves");
-      //iterating through the multidimentional array that houses all of the winning condition arrays
-      for (var i = 0; i < $allPossibleWins.length; i++) {
-        // console.log($allPossibleWins[i]);
-        //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
-        var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
-        var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
-        //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
-        if ($winnerPlayer1 == 4) {
-          $("h1").html($player1 + " has won!");
-          player1score += 1;
-          $("#player1-score").html("score: " + player1score);
-          //prevents further moves on the board if player 1 wins
-          someoneHasWon = 1;
-        } else if ($winnerPlayer2 == 4) {
-          $("h1").html($player2 + " has won!");
-          player2score += 1;
-          $("#player2-score").html("score: " + player2score);
-          //prevents further moves on the board if player 2 wins
-          someoneHasWon = 1;
-        } 
-      }
-      //if all of the pieces are in play and there is no win, you have a tie
-    } else if (42 < $click) {
-      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
-      $("h1").html("The players have tied");
-    }
-  };
-
 });
+
 
 
 //===============================================================================
