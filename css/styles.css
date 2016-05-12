@@ -110,7 +110,7 @@ p {
 
 .winning {
   animation-name: winning;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-timing-function: linear;
 }
 
