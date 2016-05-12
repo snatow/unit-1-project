@@ -137,8 +137,8 @@ $(document).ready(function () {
   var $allPossibleWins = [$win01, $win02, $win03, $win04, $win05, $win06, $win07, $win08, $win09, $win10, $win11, $win12, $win13, $win14, $win15, $win16, $win17, $win18, $win19, $win20, $win21, $win22, $win23, $win24, $win25, $win26, $win27, $win28, $win29, $win30, $win31, $win32, $win33, $win34, $win35, $win36, $win37, $win38, $win39, $win40, $win41, $win42, $win43, $win44, $win45, $win46, $win47, $win48, $win49, $win50, $win51, $win52, $win53, $win54, $win55, $win56, $win57, $win58, $win59, $win60, $win61, $win62, $win63, $win64, $win65, $win66, $win67, $win68, $win69]
 
   //players
-  var $player1;
-  var $player2;
+  var $player1 = "Player 1";
+  var $player2 = "PLayer 2";
 
   //variable to see if a player has won, and therefore inactivate the board
   var someoneHasWon = 0;
@@ -149,15 +149,16 @@ $(document).ready(function () {
   //=================================================================================
   //Functions for elements outside the game board
 
-  //to hide the form - this doesn't currently work
-  var $hideForm = function() {
-    var $form = $("#form");
-    $form.hide();
-  }
+  // //to hide the form - this doesn't currently work
+  // var $hideForm = function() {
+  //   var $form = $("#form");
+  //   $form.hide();
+  // }
 
   //submit button on form 
   $("#submit-button").click(function(event) {
     event.preventDefault();
+    //hides the form when button is clicked
     $("#form").hide();
     $player1 = $("#P1").val().toUpperCase();
     $player2 = $("#P2").val().toUpperCase();
@@ -172,76 +173,58 @@ $(document).ready(function () {
     //event.target.style.display = "none";
   });
 
-  // //submit button on form - trying submit rather than click for form to hide
-  // $("#submit-button").submit(function(event) {
-  //   event.preventDefault()
-  //   $player1 = $("#P1").val().toUpperCase();
-  //   $player2 = $("#P2").val().toUpperCase();
-  //   // console.log($player1);
-  //   // console.log($player2);
-  //   $("h1").html($player1 + ", it's your turn")
-  //   return $player1;
-  //   return $player2;
-  //   var form = document.getElementById("form");
-  //   //$hideForm;
-  //   //trying to get the form to dissappear on click, this doesn't work
-  //   // $("#form").css("visibility", hidden);
-  //   //event.target.style.display = "none";
-  //   $("#form").hide();
-  // });
-
   //reset button to clear board without clearing the players - THIS NEEDS WORK
   $("#reset-button").click(function(event) {
     $("#game-board").remove(".col");
-    $("#game-board").append("div").attr("id", "colA").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colB").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colC").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colD").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colE").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colF").attr("class", "col");
-    $("#game-board").append("div").attr("id", "colG").attr("class", "col");
-    $("#colA").append("div").attr("id", "6A").attr("class", "cell");
-    $("#colA").append("div").attr("id", "5A").attr("class", "cell");
-    $("#colA").append("div").attr("id", "4A").attr("class", "cell");
-    $("#colA").append("div").attr("id", "3A").attr("class", "cell");
-    $("#colA").append("div").attr("id", "2A").attr("class", "cell");
-    $("#colA").append("div").attr("id", "1A").attr("class", "cell");
-    $("#colB").append("div").attr("id", "6B").attr("class", "cell");
-    $("#colB").append("div").attr("id", "5B").attr("class", "cell");
-    $("#colB").append("div").attr("id", "4B").attr("class", "cell");
-    $("#colB").append("div").attr("id", "3B").attr("class", "cell");
-    $("#colB").append("div").attr("id", "2B").attr("class", "cell");
-    $("#colB").append("div").attr("id", "1B").attr("class", "cell");
-    $("#colC").append("div").attr("id", "6C").attr("class", "cell");
-    $("#colC").append("div").attr("id", "5C").attr("class", "cell");
-    $("#colC").append("div").attr("id", "4C").attr("class", "cell");
-    $("#colC").append("div").attr("id", "3C").attr("class", "cell");
-    $("#colC").append("div").attr("id", "2C").attr("class", "cell");
-    $("#colC").append("div").attr("id", "1C").attr("class", "cell");
-    $("#colD").append("div").attr("id", "6D").attr("class", "cell");
-    $("#colD").append("div").attr("id", "5D").attr("class", "cell");
-    $("#colD").append("div").attr("id", "4D").attr("class", "cell");
-    $("#colD").append("div").attr("id", "3D").attr("class", "cell");
-    $("#colD").append("div").attr("id", "2D").attr("class", "cell");
-    $("#colD").append("div").attr("id", "1D").attr("class", "cell");
-    $("#colE").append("div").attr("id", "6E").attr("class", "cell");
-    $("#colE").append("div").attr("id", "5E").attr("class", "cell");
-    $("#colE").append("div").attr("id", "4E").attr("class", "cell");
-    $("#colE").append("div").attr("id", "3E").attr("class", "cell");
-    $("#colE").append("div").attr("id", "2E").attr("class", "cell");
-    $("#colE").append("div").attr("id", "1E").attr("class", "cell");
-    $("#colF").append("div").attr("id", "6F").attr("class", "cell");
-    $("#colF").append("div").attr("id", "5F").attr("class", "cell");
-    $("#colF").append("div").attr("id", "4F").attr("class", "cell");
-    $("#colF").append("div").attr("id", "3F").attr("class", "cell");
-    $("#colF").append("div").attr("id", "2F").attr("class", "cell");
-    $("#colF").append("div").attr("id", "1F").attr("class", "cell");
-    $("#colG").append("div").attr("id", "6G").attr("class", "cell");
-    $("#colG").append("div").attr("id", "5G").attr("class", "cell");
-    $("#colG").append("div").attr("id", "4G").attr("class", "cell");
-    $("#colG").append("div").attr("id", "3G").attr("class", "cell");
-    $("#colG").append("div").attr("id", "2G").attr("class", "cell");
-    $("#colG").append("div").attr("id", "1G").attr("class", "cell");
+    // $("#game-board").append("div").attr("id", "colA").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colB").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colC").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colD").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colE").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colF").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colG").attr("class", "col");
+    // $("#colA").append("div").attr("id", "6A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "5A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "4A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "3A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "2A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "1A").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "6B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "5B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "4B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "3B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "2B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "1B").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "6C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "5C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "4C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "3C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "2C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "1C").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "6D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "5D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "4D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "3D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "2D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "1D").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "6E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "5E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "4E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "3E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "2E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "1E").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "6F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "5F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "4F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "3F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "2F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "1F").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "6G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "5G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "4G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "3G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "2G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "1G").attr("class", "cell");
     $click = 0;
   })
 

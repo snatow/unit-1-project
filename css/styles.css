@@ -24,9 +24,9 @@
 }
 
 .player1 {
-  background-image: url(images/red-circle.png);
+  background-image: url(images/red-circle2.png);
   animation-name: drop;
-  animation-duration: 1s;
+  animation-duration: .25s;
   animation-timing-function: linear;
   z-index: -1;
 }
@@ -39,7 +39,7 @@
 div.player2 {
   background-image: url(images/black-circle.png);
   animation-name: drop;
-  animation-duration: 1s;
+  animation-duration: .25s;
   animation-timing-function: linear;
   z-index: -1;
 }
