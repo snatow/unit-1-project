@@ -156,7 +156,10 @@ $(document).ready(function () {
   //hide reset button until it is needed
   $("#reset-button").hide();
 
-  //submit button on form 
+  //activating the game board
+  $(".col").click($gamePlay);
+
+  //actions for submit button on form 
   $("#submit-button").click(function(event) {
     event.preventDefault();
     //hides the form when button is clicked
@@ -201,7 +204,7 @@ $(document).ready(function () {
   })
 
 
-  //=================================================================================
+  //===============================================================================
   //Functions for how players interact with the board
 
   var $gamePlay = function() {
@@ -258,65 +261,46 @@ $(document).ready(function () {
     }
   };
 
-  $(".col").click($gamePlay);
 
-
-  //this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
-  //pretty happy that I was able to replace 237 lines of code with 34 . . . .
-
-  // $(".col").click(function() {
-  //   //increase turn count, move from player 1 to player 2 and vice versa
-  //   $click += 1;
-  //   // console.log($(this));
-  //   // console.log($(this).children("div").length);
-  //   //if someoneHasWon is set to 1, one of the players has created a winning combination, and game play should stop
-  //   if (someoneHasWon == 1) {
-  //     // console.log("game is over");
-  //   } else {
-  //     //gets an array of all of the elements in the column clicked and then reverses their order so we can iterate over the column from the bottom up and not the top down
-  //     var columnReverse = $(this).children("div").get().reverse();
-  //     // console.log($columnReverse[0]);
-  //     // puts into action moves for player 2 (all even turns)
-  //     if ($click%2 === 0) {
-  //       $("h1").html($player1 + ", it's your turn")
-  //       for (var i = 0; i < columnReverse.length; i++) {
-  //         // accounts for cells already containing player avatars
-  //         if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
-  //           // console.log("no move here");
-  //         } else {
-  //           //assigns player 2 avatar to lowest available cell in column
-  //           $(columnReverse[i]).addClass("player2");
-  //           $winCheck();
-  //           if (i == 5) {
-  //             //removes click handler if 6 avatars have been added to this column
-  //             $(this).unbind("click");
-  //             $(this).addClass("full");
-  //           }
-  //           break;
-  //         }
-  //       }
-  //     } else if ($click%2 !==0 ) {
-  //       $("h1").html($player2 + ", it's your turn")
-  //       for (var j = 0; j < columnReverse.length; j++) {
-  //         // console.log($columnReverse[j]);
-  //         // accounts for cells already containing player avatars
-  //         if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
-  //           // console.log("no move here");
-  //         } else {
-  //           //assigns player 1 avatar to lowest available cell in column
-  //           $(columnReverse[j]).addClass("player1");
-  //           $winCheck();
-  //           if (j == 5) {
-  //             //removes click handler if 6 avatars have been added to this column
-  //             $(this).unbind("click");
-  //             $(this).addClass("full");
-  //           }
-  //           break;
-  //         }
-  //       }
-  //     }
-  //   }
-  // });
+  //this is a version of the game play function above that takes into account the increased click count start if player 2 gets to play first
+  var $gamePlay2 = function() {
+    $click += 1;
+    if (someoneHasWon == 1) {
+    } else {
+      var columnReverse = $(this).children("div").get().reverse();
+      if ($click%2 === 0) {
+        $("h1").html($player1 + ", it's your turn")
+        for (var i = 0; i < columnReverse.length; i++) {
+          if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+          } else {
+            $(columnReverse[i]).addClass("player2");
+            //this is the big difference between gamePlay1 and gamPlay2
+            $winCheck2();
+            if (i == 5) {
+              $(this).unbind("click");
+              $(this).addClass("full");
+            }
+            break;
+          }
+        }
+      } else if ($click%2 !==0 ) {
+        $("h1").html($player2 + ", it's your turn")
+        for (var j = 0; j < columnReverse.length; j++) {
+          if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
+          } else {
+            $(columnReverse[j]).addClass("player1");
+            //this is the big difference between gamePlay1 and gamePlay2
+            $winCheck2();
+            if (j == 5) {
+              $(this).unbind("click");
+              $(this).addClass("full");
+            }
+            break;
+          }
+        }
+      }
+    }
+  };
 
 
   //===============================================================================
@@ -372,8 +356,45 @@ $(document).ready(function () {
     }
   };
 
-});
 
+
+  //this version takes into account the increased click count start if player 2 gets to play first
+  var $winCheck = function() {
+    //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
+    if ($click < 8) {
+      // console.log("not enough moves");
+      //checking for a win after 7 moves
+    } else if (7 < $click && $click < 43) {
+      // console.log("enough moves");
+      //iterating through the multidimentional array that houses all of the winning condition arrays
+      for (var i = 0; i < $allPossibleWins.length; i++) {
+        // console.log($allPossibleWins[i]);
+        //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
+        var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
+        var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+        //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
+        if ($winnerPlayer1 == 4) {
+          $("h1").html($player1 + " has won!");
+          player1score += 1;
+          $("#player1-score").html("score: " + player1score);
+          //prevents further moves on the board if player 1 wins
+          someoneHasWon = 1;
+        } else if ($winnerPlayer2 == 4) {
+          $("h1").html($player2 + " has won!");
+          player2score += 1;
+          $("#player2-score").html("score: " + player2score);
+          //prevents further moves on the board if player 2 wins
+          someoneHasWon = 1;
+        } 
+      }
+      //if all of the pieces are in play and there is no win, you have a tie
+    } else if (42 < $click) {
+      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+      $("h1").html("The players have tied");
+    }
+  };
+
+});
 
 
 //===============================================================================
@@ -384,6 +405,63 @@ $(document).ready(function () {
   //   var $form = $("#form");
   //   $form.hide();
   // }
+
+    //this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
+  //pretty happy that I was able to replace 237 lines of code with 34 . . . .
+
+  // $(".col").click(function() {
+  //   //increase turn count, move from player 1 to player 2 and vice versa
+  //   $click += 1;
+  //   // console.log($(this));
+  //   // console.log($(this).children("div").length);
+  //   //if someoneHasWon is set to 1, one of the players has created a winning combination, and game play should stop
+  //   if (someoneHasWon == 1) {
+  //     // console.log("game is over");
+  //   } else {
+  //     //gets an array of all of the elements in the column clicked and then reverses their order so we can iterate over the column from the bottom up and not the top down
+  //     var columnReverse = $(this).children("div").get().reverse();
+  //     // console.log($columnReverse[0]);
+  //     // puts into action moves for player 2 (all even turns)
+  //     if ($click%2 === 0) {
+  //       $("h1").html($player1 + ", it's your turn")
+  //       for (var i = 0; i < columnReverse.length; i++) {
+  //         // accounts for cells already containing player avatars
+  //         if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+  //           // console.log("no move here");
+  //         } else {
+  //           //assigns player 2 avatar to lowest available cell in column
+  //           $(columnReverse[i]).addClass("player2");
+  //           $winCheck();
+  //           if (i == 5) {
+  //             //removes click handler if 6 avatars have been added to this column
+  //             $(this).unbind("click");
+  //             $(this).addClass("full");
+  //           }
+  //           break;
+  //         }
+  //       }
+  //     } else if ($click%2 !==0 ) {
+  //       $("h1").html($player2 + ", it's your turn")
+  //       for (var j = 0; j < columnReverse.length; j++) {
+  //         // console.log($columnReverse[j]);
+  //         // accounts for cells already containing player avatars
+  //         if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
+  //           // console.log("no move here");
+  //         } else {
+  //           //assigns player 1 avatar to lowest available cell in column
+  //           $(columnReverse[j]).addClass("player1");
+  //           $winCheck();
+  //           if (j == 5) {
+  //             //removes click handler if 6 avatars have been added to this column
+  //             $(this).unbind("click");
+  //             $(this).addClass("full");
+  //           }
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
+  // });
 
   // // for this longer version of the function I have commented what is happening at each step only for the function related to column A. The code is the same for all columns
 

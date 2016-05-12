@@ -44,7 +44,7 @@ Wednesday
 
 Thursday
 - more css to style game - animate pieces being added to the board (done)
-- readme.md as required by the prompt
+- readme.md as required by the prompt (done)
 - set up hosting on github
 - get reset button up and running (done)
 - customize game pieces - watermarks perhaps? (done)
