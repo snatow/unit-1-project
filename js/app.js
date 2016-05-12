@@ -188,7 +188,12 @@ $(document).ready(function () {
     $("div").removeClass("player2");
     $("div").removeClass("full");
     $("h1").html($player1 + ", it's your turn");
-    $click = 0;
+    //allows the player with the lower score to have the first turn on the next round
+    if (player1score > player2score) {
+      $click = 1;
+    } else {
+      $click = 0;
+    }
     someoneHasWon = 0;
   })
 
