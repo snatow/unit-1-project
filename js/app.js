@@ -188,7 +188,9 @@ $(document).ready(function () {
     $("div").removeClass("player2");
     $("div").removeClass("full");
     $("h1").html($player1 + ", it's your turn");
-    //allows the player with the lower score to have the first turn on the next round
+    $(".col").unbind("click");
+    $(".col").click($gamePlay);
+    //allows the player with the lower score to have the first turn on the next round - this could create an issue if 41 pieces are played and there is the ability for the second player to win as the wincheck function will prevent the last piece from being played if player 1 has a higher score when starting the game.
     if (player1score > player2score) {
       $click = 1;
     } else {
@@ -201,10 +203,7 @@ $(document).ready(function () {
   //=================================================================================
   //Functions for how players interact with the board
 
-  //this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
-  //pretty happy that I was able to replace 237 lines of code with 34 . . . .
-
-  $(".col").click(function() {
+  var $gamePlay = function() {
     //increase turn count, move from player 1 to player 2 and vice versa
     $click += 1;
     // console.log($(this));
@@ -256,7 +255,128 @@ $(document).ready(function () {
         }
       }
     }
-  });
+  };
+
+  $(".col").click($gamePlay);
+
+
+  //this version is much more efficient. Not sure why .get().reverse() turns the jquery object into a javascript function . . .
+  //pretty happy that I was able to replace 237 lines of code with 34 . . . .
+
+  // $(".col").click(function() {
+  //   //increase turn count, move from player 1 to player 2 and vice versa
+  //   $click += 1;
+  //   // console.log($(this));
+  //   // console.log($(this).children("div").length);
+  //   //if someoneHasWon is set to 1, one of the players has created a winning combination, and game play should stop
+  //   if (someoneHasWon == 1) {
+  //     // console.log("game is over");
+  //   } else {
+  //     //gets an array of all of the elements in the column clicked and then reverses their order so we can iterate over the column from the bottom up and not the top down
+  //     var columnReverse = $(this).children("div").get().reverse();
+  //     // console.log($columnReverse[0]);
+  //     // puts into action moves for player 2 (all even turns)
+  //     if ($click%2 === 0) {
+  //       $("h1").html($player1 + ", it's your turn")
+  //       for (var i = 0; i < columnReverse.length; i++) {
+  //         // accounts for cells already containing player avatars
+  //         if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+  //           // console.log("no move here");
+  //         } else {
+  //           //assigns player 2 avatar to lowest available cell in column
+  //           $(columnReverse[i]).addClass("player2");
+  //           $winCheck();
+  //           if (i == 5) {
+  //             //removes click handler if 6 avatars have been added to this column
+  //             $(this).unbind("click");
+  //             $(this).addClass("full");
+  //           }
+  //           break;
+  //         }
+  //       }
+  //     } else if ($click%2 !==0 ) {
+  //       $("h1").html($player2 + ", it's your turn")
+  //       for (var j = 0; j < columnReverse.length; j++) {
+  //         // console.log($columnReverse[j]);
+  //         // accounts for cells already containing player avatars
+  //         if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
+  //           // console.log("no move here");
+  //         } else {
+  //           //assigns player 1 avatar to lowest available cell in column
+  //           $(columnReverse[j]).addClass("player1");
+  //           $winCheck();
+  //           if (j == 5) {
+  //             //removes click handler if 6 avatars have been added to this column
+  //             $(this).unbind("click");
+  //             $(this).addClass("full");
+  //           }
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
+  // });
+
+
+  //===============================================================================
+  //Functions used to check for a winner
+
+  //will return array of all of the elements in a winning condition as defined above that contain the first players avatar
+  var $containsP1 = function(element) {
+    if (element.hasClass("player1")) {
+      return true;
+    }
+  };
+
+  //will return array of all of the elements in a winning condition as defined above that contain the second players avatar
+  var $containsP2 = function(element) {
+    if (element.hasClass("player2")) {
+      return true;
+    }
+  }
+
+  //more efficient win check - uses 20 lines of code vs. 424 for the long version
+  var $winCheck = function() {
+    //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
+    if ($click < 7) {
+      // console.log("not enough moves");
+      //checking for a win after 7 moves
+    } else if (6 < $click && $click < 42) {
+      // console.log("enough moves");
+      //iterating through the multidimentional array that houses all of the winning condition arrays
+      for (var i = 0; i < $allPossibleWins.length; i++) {
+        // console.log($allPossibleWins[i]);
+        //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
+        var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
+        var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+        //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
+        if ($winnerPlayer1 == 4) {
+          $("h1").html($player1 + " has won!");
+          player1score += 1;
+          $("#player1-score").html("score: " + player1score);
+          //prevents further moves on the board if player 1 wins
+          someoneHasWon = 1;
+        } else if ($winnerPlayer2 == 4) {
+          $("h1").html($player2 + " has won!");
+          player2score += 1;
+          $("#player2-score").html("score: " + player2score);
+          //prevents further moves on the board if player 2 wins
+          someoneHasWon = 1;
+        } 
+      }
+      //if all of the pieces are in play and there is no win, you have a tie
+    } else if (41 < $click) {
+      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+      $("h1").html("The players have tied");
+    }
+  };
+
+});
+
+
+
+//===============================================================================
+//JUNK CODE
 
   // // for this longer version of the function I have commented what is happening at each step only for the function related to column A. The code is the same for all columns
 
@@ -537,60 +657,6 @@ $(document).ready(function () {
   //   }
   // });
 
-  //=================================================================================
-  //Functions used to check for a winner
-
-  //will return array of all of the elements in a winning condition as defined above that contain the first players avatar
-  var $containsP1 = function(element) {
-    if (element.hasClass("player1")) {
-      return true;
-    }
-  };
-
-  //will return array of all of the elements in a winning condition as defined above that contain the second players avatar
-  var $containsP2 = function(element) {
-    if (element.hasClass("player2")) {
-      return true;
-    }
-  }
-
-  //more efficient win check - uses 20 lines of code vs. 424 for the long version
-  var $winCheck = function() {
-    //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
-    if ($click < 7) {
-      // console.log("not enough moves");
-      //checking for a win after 7 moves
-    } else if (6 < $click && $click < 42) {
-      // console.log("enough moves");
-      //iterating through the multidimentional array that houses all of the winning condition arrays
-      for (var i = 0; i < $allPossibleWins.length; i++) {
-        // console.log($allPossibleWins[i]);
-        //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
-        var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
-        var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
-        //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
-        if ($winnerPlayer1 == 4) {
-          $("h1").html($player1 + " has won!");
-          player1score += 1;
-          $("#player1-score").html("score: " + player1score);
-          //prevents further moves on the board if player 1 wins
-          someoneHasWon = 1;
-        } else if ($winnerPlayer2 == 4) {
-          $("h1").html($player2 + " has won!");
-          player2score += 1;
-          $("#player2-score").html("score: " + player2score);
-          //prevents further moves on the board if player 2 wins
-          someoneHasWon = 1;
-        } 
-      }
-      //if all of the pieces are in play and there is no win, you have a tie
-    } else if (41 < $click) {
-      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
-      $("h1").html("The players have tied");
-    }
-  };
-
-});
 
   // //this is a really long winded way of checking if there is a winning combination on the board, but it works. 
   // //use filter to see how long the resulting arrays are - if the array has a length of 4, all elements in the array have the player's avatar, and there is a win
@@ -1023,8 +1089,11 @@ $(document).ready(function () {
   //   }
   // }
 
-//JUNK CODE
 
+
+
+
+//first attempt at reset button
     //$("#game-board").remove(".col");
     // $("#game-board").append("div").attr("id", "colA").attr("class", "col");
     // $("#game-board").append("div").attr("id", "colB").attr("class", "col");
