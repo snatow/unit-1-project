@@ -397,7 +397,41 @@ $(document).ready(function () {
 
 });
 
+//===============================================================================
+//first stab at an AI
 
+var $computerMove = function () {
+  var selector = Math.floor(Math.random() * 8);
+  switch (selector) {
+    case 0:
+      something
+      break;
+    case 1:
+      something
+      break;
+    case 2:
+      something
+      break;
+    case 3: 
+      something
+      break;
+    case 4:
+      something
+      break;
+    case 5:
+      something
+      break;
+    case 6:
+      something
+      break;
+    case 7:
+      something
+      break;
+    default:
+      nothing
+      
+  }
+}
 
 //===============================================================================
 //JUNK CODE
