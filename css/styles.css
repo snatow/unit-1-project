@@ -24,7 +24,7 @@
 }
 
 .player1 {
-  background-image: url(images/red-circle2.png);
+  background-image: url(images/red-circle-zoolander.png);
   animation-name: drop;
   animation-duration: .25s;
   animation-timing-function: linear;
@@ -37,7 +37,7 @@
 }
 
 div.player2 {
-  background-image: url(images/black-circle.png);
+  background-image: url(images/black-circle-hansel.png);
   animation-name: drop;
   animation-duration: .25s;
   animation-timing-function: linear;

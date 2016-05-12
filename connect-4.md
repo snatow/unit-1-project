@@ -46,7 +46,7 @@ Thursday
 - more css to style game - animate pieces being added to the board (done)
 - readme.md as required by the prompt
 - set up hosting on github
-- tie board generation to start/reset button - in progress, need to work on event handlers
+- get reset button up and running (done)
 - customize game pieces - watermarks perhaps?
 - if time, work on AI for one player game
 
