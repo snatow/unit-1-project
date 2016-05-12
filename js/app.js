@@ -2,7 +2,7 @@ $(document).ready(function () {
   // console.log("working");
 
   //=================================================================================
-  //SET UP VAR
+  //SET UP VARIABLES
   //cells
   var $1A = $("#1A");
   var $2A = $("#2A");
@@ -150,7 +150,7 @@ $(document).ready(function () {
   var player1score = 0;
   var player2score = 0;
 
-  //=================================================================================
+  //===============================================================================
   //Functions for elements outside the game board
 
   //hide reset button until it is needed
