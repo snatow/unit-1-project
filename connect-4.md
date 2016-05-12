@@ -47,7 +47,7 @@ Thursday
 - readme.md as required by the prompt
 - set up hosting on github
 - get reset button up and running (done)
-- customize game pieces - watermarks perhaps?
+- customize game pieces - watermarks perhaps? (done)
 - if time, work on AI for one player game
 
 #UXUI

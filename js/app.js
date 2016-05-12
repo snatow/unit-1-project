@@ -2,7 +2,7 @@ $(document).ready(function () {
   // console.log("working");
 
   //=================================================================================
-  //SET UP
+  //SET UP VAR
   //cells
   var $1A = $("#1A");
   var $2A = $("#2A");
@@ -153,17 +153,16 @@ $(document).ready(function () {
   //=================================================================================
   //Functions for elements outside the game board
 
-  // //to hide the form - this doesn't currently work
-  // var $hideForm = function() {
-  //   var $form = $("#form");
-  //   $form.hide();
-  // }
+  //hide reset button until it is needed
+  $("#reset-button").hide();
 
   //submit button on form 
   $("#submit-button").click(function(event) {
     event.preventDefault();
     //hides the form when button is clicked
     $("#form").hide();
+    //reveals the reset button once the players have entered their names
+    $("#reset-button").show();
     $player1 = $("#P1").val().toUpperCase();
     $player2 = $("#P2").val().toUpperCase();
     $("#player1-name").html($player1);
@@ -379,6 +378,12 @@ $(document).ready(function () {
 
 //===============================================================================
 //JUNK CODE
+
+  // //to hide the form - this doesn't currently work
+  // var $hideForm = function() {
+  //   var $form = $("#form");
+  //   $form.hide();
+  // }
 
   // // for this longer version of the function I have commented what is happening at each step only for the function related to column A. The code is the same for all columns
 

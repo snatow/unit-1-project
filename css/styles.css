@@ -10,7 +10,7 @@
 #game-board {
   /*margin-left: 25%;*/
   float: right;
-  margin-right: 10%;
+  margin-right: 11%;
   /*display: inline-block;*/
   height: 612px;
   width: 714px;
@@ -56,9 +56,14 @@ h1 {
   text-align: center;
 }
 
-/*#name1 {
-  margin-left: 30%;
-}*/
+#name1 {
+  /*margin-left: 30%;*/
+  color: red;
+}
+
+#player1-name {
+  color: red;
+}
 
 #reset-button {
   margin-left: 13%;
