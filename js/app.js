@@ -188,14 +188,18 @@ $(document).ready(function () {
     $("div").removeClass("full");
     // $("h1").html($player1 + ", it's your turn");
     $(".col").unbind("click");
-    $(".col").click($gamePlay);
-    //allows the player with the lower score to have the first turn on the next round - this could create an issue if 41 pieces are played and there is the ability for the second player to win as the wincheck function will prevent the last piece from being played if player 1 has a higher score when starting the game.
+    // $(".col").click($gamePlay);
+    //allows the player with the lower score to have the first turn on the next round - this could create an issue if 41 pieces are played and there is the ability for the second player to win as the wincheck function will prevent the last piece from being played if player 1 has a higher score when starting the game. Created new versions of game play and win check to account for this
     if (player1score > player2score) {
       $click = 1;
       $("h1").html($player2 + ", it's your turn");
+      //activate version of game play and win check that accounts for player 2 going first
+      $(".col").click($gamePlay2);
     } else {
       $click = 0;
       $("h1").html($player1 + ", it's your turn");
+      //activate standard version of game play and win check
+      $(".col").click($gamePlay);
     }
     someoneHasWon = 0;
   })
@@ -350,6 +354,42 @@ $(document).ready(function () {
       }
       //if all of the pieces are in play and there is no win, you have a tie
     } else if (41 < $click) {
+      //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+      $("h1").html("The players have tied");
+    }
+  };
+
+
+  var $winCheck2 = function() {
+    //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
+    if ($click < 8) {
+      // console.log("not enough moves");
+      //checking for a win after 7 moves
+    } else if (7 < $click && $click < 43) {
+      // console.log("enough moves");
+      //iterating through the multidimentional array that houses all of the winning condition arrays
+      for (var i = 0; i < $allPossibleWins.length; i++) {
+        // console.log($allPossibleWins[i]);
+        //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
+        var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
+        var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+        //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
+        if ($winnerPlayer1 == 4) {
+          $("h1").html($player1 + " has won!");
+          player1score += 1;
+          $("#player1-score").html("score: " + player1score);
+          //prevents further moves on the board if player 1 wins
+          someoneHasWon = 1;
+        } else if ($winnerPlayer2 == 4) {
+          $("h1").html($player2 + " has won!");
+          player2score += 1;
+          $("#player2-score").html("score: " + player2score);
+          //prevents further moves on the board if player 2 wins
+          someoneHasWon = 1;
+        } 
+      }
+      //if all of the pieces are in play and there is no win, you have a tie
+    } else if (42 < $click) {
       //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
       $("h1").html("The players have tied");
     }
