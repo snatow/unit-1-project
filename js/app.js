@@ -171,7 +171,7 @@ $(document).ready(function () {
     $("#player2-score").html("score: " + player2score);
     // console.log($player1);
     // console.log($player2);
-    $("h1").html($player1 + ", it's your turn")
+    $("h1").html($player1 + ", it's your turn");
     return $player1;
     return $player2;
     //$hideForm;
@@ -192,12 +192,12 @@ $(document).ready(function () {
     //allows the player with the lower score to have the first turn on the next round - this could create an issue if 41 pieces are played and there is the ability for the second player to win as the wincheck function will prevent the last piece from being played if player 1 has a higher score when starting the game. Created new versions of game play and win check to account for this
     if (player1score > player2score) {
       $click = 1;
-      $("h1").html($player2 + ", it's your turn");
+      $("h1").html($player2 + ", it's your turn").removeClass("winning");
       //activate version of game play and win check that accounts for player 2 going first
       $(".col").click($gamePlay2);
     } else {
       $click = 0;
-      $("h1").html($player1 + ", it's your turn");
+      $("h1").html($player1 + ", it's your turn").removeClass("winning");
       //activate standard version of game play and win check
       $(".col").click($gamePlay);
     }
@@ -339,13 +339,13 @@ $(document).ready(function () {
         var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
         //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
         if ($winnerPlayer1 == 4) {
-          $("h1").html($player1 + " has won!");
+          $("h1").html($player1 + " has won!").addClass("winning");
           player1score += 1;
           $("#player1-score").html("score: " + player1score);
           //prevents further moves on the board if player 1 wins
           someoneHasWon = 1;
         } else if ($winnerPlayer2 == 4) {
-          $("h1").html($player2 + " has won!");
+          $("h1").html($player2 + " has won!").addClass("winning");
           player2score += 1;
           $("#player2-score").html("score: " + player2score);
           //prevents further moves on the board if player 2 wins
@@ -375,13 +375,13 @@ $(document).ready(function () {
         var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
         //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
         if ($winnerPlayer1 == 4) {
-          $("h1").html($player1 + " has won!");
+          $("h1").html($player1 + " has won!").addClass("winning");
           player1score += 1;
           $("#player1-score").html("score: " + player1score);
           //prevents further moves on the board if player 1 wins
           someoneHasWon = 1;
         } else if ($winnerPlayer2 == 4) {
-          $("h1").html($player2 + " has won!");
+          $("h1").html($player2 + " has won!").addClass("winning");
           player2score += 1;
           $("#player2-score").html("score: " + player2score);
           //prevents further moves on the board if player 2 wins

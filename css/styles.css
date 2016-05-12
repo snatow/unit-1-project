@@ -107,3 +107,18 @@ h3 {
 p {
   text-align: center;
 }
+
+.winning {
+  animation-name: winning;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes winning {
+  0% {transform: translate(0px, 0px) rotate(0deg);}
+  20% {transform: translate(0px, 200px) rotate(0deg); color: gold;}
+  40% {transform: translate(0px, 200px) rotate(120deg); color: black;}
+  60% {transform: translate(0px, 200px) rotate(240deg); color: gold;}
+  80% {transform: translate(0px, 200px) rotate(360deg); color: black;}
+  100% {transform: translate(0px, 0px) rotate(0deg); color: gold;}
+}
