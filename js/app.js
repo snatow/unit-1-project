@@ -187,14 +187,16 @@ $(document).ready(function () {
     $("div").removeClass("player1");
     $("div").removeClass("player2");
     $("div").removeClass("full");
-    $("h1").html($player1 + ", it's your turn");
+    // $("h1").html($player1 + ", it's your turn");
     $(".col").unbind("click");
     $(".col").click($gamePlay);
     //allows the player with the lower score to have the first turn on the next round - this could create an issue if 41 pieces are played and there is the ability for the second player to win as the wincheck function will prevent the last piece from being played if player 1 has a higher score when starting the game.
     if (player1score > player2score) {
       $click = 1;
+      $("h1").html($player2 + ", it's your turn");
     } else {
       $click = 0;
+      $("h1").html($player1 + ", it's your turn");
     }
     someoneHasWon = 0;
   })
