@@ -53,10 +53,25 @@ h1 {
 }
 
 #reset-button {
-  margin-left: 48%;
+  margin-left: 13%;
   margin-bottom: 10px;
 }
 
 #submit-button:hover {
   background-color: red;
+}
+
+#reset-button:hover {
+  background-color: red;
+}
+
+.score-board {
+  display: inline-block;
+  border: 1px solid black;
+  width: 225px;
+}
+
+#score-holder {
+  margin-left: 30%;
+  margin-top: 10px;
 }
