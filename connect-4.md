@@ -46,7 +46,9 @@ Thursday
 - more css to style game - animate pieces being added to the board (done)
 - readme.md as required by the prompt
 - set up hosting on github
-- tie board generation to start/reset button
+- tie board generation to start/reset button - in progress, need to work on event handlers
+- customize game pieces - watermarks perhaps?
+- if time, work on AI for one player game
 
 #UXUI
 - The initial version of this game will be for two players. Player 1 will load the page, and type his or her name into the form field labeled Player 1 and Player 2 will type his or her name into the form field labeled Player 2 and click a submit button. This information will be stored and linked to the turn counter so that the top of the screen can announce who's turn it is. Player 1 will be red, player 2 will be black
