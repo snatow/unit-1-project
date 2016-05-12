@@ -1,6 +1,6 @@
 ## Connect Four - Zoolander Edition
 
-[location of my project](puturlhere)
+[Connect_Four_Zoolander_Edition](www.snatow.github.io/unit-1-project)
 
 ### Description
 Connect Four - Zoolander Edition is a two-player game in which the fist player takes on the role of Derek Zoolander and the second player takes on the role of Hansel and then take turns dropping colored discs with their faces from the top into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the next available space within the column. The objective of the game is to connect four of one's own discs next to each other vertically, horizontally, or diagonally before your opponent. 
