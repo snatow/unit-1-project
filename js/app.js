@@ -174,58 +174,14 @@ $(document).ready(function () {
   });
 
   //reset button to clear board without clearing the players - THIS NEEDS WORK
+  //this only works if the event handlers are intact 
   $("#reset-button").click(function(event) {
-    $("#game-board").remove(".col");
-    // $("#game-board").append("div").attr("id", "colA").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colB").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colC").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colD").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colE").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colF").attr("class", "col");
-    // $("#game-board").append("div").attr("id", "colG").attr("class", "col");
-    // $("#colA").append("div").attr("id", "6A").attr("class", "cell");
-    // $("#colA").append("div").attr("id", "5A").attr("class", "cell");
-    // $("#colA").append("div").attr("id", "4A").attr("class", "cell");
-    // $("#colA").append("div").attr("id", "3A").attr("class", "cell");
-    // $("#colA").append("div").attr("id", "2A").attr("class", "cell");
-    // $("#colA").append("div").attr("id", "1A").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "6B").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "5B").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "4B").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "3B").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "2B").attr("class", "cell");
-    // $("#colB").append("div").attr("id", "1B").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "6C").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "5C").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "4C").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "3C").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "2C").attr("class", "cell");
-    // $("#colC").append("div").attr("id", "1C").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "6D").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "5D").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "4D").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "3D").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "2D").attr("class", "cell");
-    // $("#colD").append("div").attr("id", "1D").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "6E").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "5E").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "4E").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "3E").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "2E").attr("class", "cell");
-    // $("#colE").append("div").attr("id", "1E").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "6F").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "5F").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "4F").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "3F").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "2F").attr("class", "cell");
-    // $("#colF").append("div").attr("id", "1F").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "6G").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "5G").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "4G").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "3G").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "2G").attr("class", "cell");
-    // $("#colG").append("div").attr("id", "1G").attr("class", "cell");
+    $("div").removeClass("player1");
+    $("div").removeClass("player2");
+    $("div").removeClass("full");
+    $("h1").html($player1 + ", it's your turn");
     $click = 0;
+    someoneHasWon = 0;
   })
 
 
@@ -1050,7 +1006,58 @@ $(document).ready(function () {
   //   }
   // }
 
+//JUNK CODE
 
+    //$("#game-board").remove(".col");
+    // $("#game-board").append("div").attr("id", "colA").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colB").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colC").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colD").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colE").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colF").attr("class", "col");
+    // $("#game-board").append("div").attr("id", "colG").attr("class", "col");
+    // $("#colA").append("div").attr("id", "6A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "5A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "4A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "3A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "2A").attr("class", "cell");
+    // $("#colA").append("div").attr("id", "1A").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "6B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "5B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "4B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "3B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "2B").attr("class", "cell");
+    // $("#colB").append("div").attr("id", "1B").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "6C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "5C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "4C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "3C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "2C").attr("class", "cell");
+    // $("#colC").append("div").attr("id", "1C").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "6D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "5D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "4D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "3D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "2D").attr("class", "cell");
+    // $("#colD").append("div").attr("id", "1D").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "6E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "5E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "4E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "3E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "2E").attr("class", "cell");
+    // $("#colE").append("div").attr("id", "1E").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "6F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "5F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "4F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "3F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "2F").attr("class", "cell");
+    // $("#colF").append("div").attr("id", "1F").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "6G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "5G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "4G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "3G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "2G").attr("class", "cell");
+    // $("#colG").append("div").attr("id", "1G").attr("class", "cell");
 
 
 
