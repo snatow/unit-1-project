@@ -7,28 +7,30 @@
 </head>
 <body>
 <h1>Connect Four</h1>
-<form id="form">
-  <label id="name1">Player 1's name:</label>
-  <input type="text" id="P1"></input>
-  <label>Player 2's name:</label>
-  <input type="text" id="P2"></input>
-  <input type="button" value="SUBMIT" id="submit-button"></button>
-</form>
-<div id="score-holder">
-  <div class="score-board">
-    <h3 id="player1-name"></h3>
-    <p id="player1-score"></p>
-  </div>
-  <div class="score-board">
-    <h3 id="player2-name"></h3>
-    <p id="player2-score"></p>
-  </div>
-  <div class="score-board">
-    <button id="reset-button">RESET</button>
+<div id="left-side-of-page">
+  <form id="form">
+    <label id="name1">Player 1's name:</label>
+    <input type="text" id="P1"></input><br>
+    <label>Player 2's name:</label>
+    <input type="text" id="P2"></input>
+    <input type="button" value="SUBMIT" id="submit-button"></button>
+  </form>
+  <div id="score-holder">
+    <div class="score-board">
+      <h3 id="player1-name"></h3>
+      <p id="player1-score"></p>
+    </div>
+    <div class="score-board">
+      <h3 id="player2-name"></h3>
+      <p id="player2-score"></p>
+    </div>
+    <div id="reset-button-holder">
+      <button id="reset-button">RESET</button>
+    </div>
   </div>
 </div>
 <div id="game-board">
-<div id="colA" class="col">
+  <div id="colA" class="col">
     <div id="6A" class="cell"></div>
     <div id="5A" class="cell"></div>
     <div id="4A" class="cell"></div>

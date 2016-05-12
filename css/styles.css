@@ -2,8 +2,16 @@
   background-color: lightgrey;
 }*/
 
+#left-side-of-page {
+  margin-left: 10%;
+  display: inline-block;
+}
+
 #game-board {
-  margin-left: 25%;
+  /*margin-left: 25%;*/
+  float: right;
+  margin-right: 10%;
+  /*display: inline-block;*/
   height: 612px;
   width: 714px;
   border: 1px solid #399de3;
@@ -36,7 +44,7 @@
   100% {transform: translateY(0px);}
 }
 
-div.player2 {
+.player2 {
   background-image: url(images/black-circle-hansel.png);
   animation-name: drop;
   animation-duration: .25s;
@@ -46,12 +54,11 @@ div.player2 {
 
 h1 {
   text-align: center;
-  margin-bottom: 5px;
 }
 
-#name1 {
+/*#name1 {
   margin-left: 30%;
-}
+}*/
 
 #reset-button {
   margin-left: 13%;
@@ -68,11 +75,16 @@ h1 {
 
 .score-board {
   display: inline-block;
-  width: 225px;
+  width: 140px;
+}
+
+#reset-button-holder {
+  display: inline-block;
+  width: 90px;
 }
 
 #score-holder {
-  margin-left: 30%;
+  /*margin-left: 30%;*/
   margin-top: 10px;
 }
 
