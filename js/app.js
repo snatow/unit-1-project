@@ -146,6 +146,10 @@ $(document).ready(function () {
   //click counter
   var $click = 0;
 
+  //score tally
+  var player1score = 0;
+  var player2score = 0;
+
   //=================================================================================
   //Functions for elements outside the game board
 
@@ -162,6 +166,10 @@ $(document).ready(function () {
     $("#form").hide();
     $player1 = $("#P1").val().toUpperCase();
     $player2 = $("#P2").val().toUpperCase();
+    $("#player1-name").html($player1);
+    $("#player2-name").html($player2);
+    $("#player1-score").html("score: " + player1score);
+    $("#player2-score").html("score: " + player2score);
     // console.log($player1);
     // console.log($player2);
     $("h1").html($player1 + ", it's your turn")
@@ -558,10 +566,14 @@ $(document).ready(function () {
         //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
         if ($winnerPlayer1 == 4) {
           $("h1").html($player1 + " has won!");
+          player1score += 1;
+          $("#player1-score").html("score: " + player1score);
           //prevents further moves on the board if player 1 wins
           someoneHasWon = 1;
         } else if ($winnerPlayer2 == 4) {
           $("h1").html($player2 + " has won!");
+          player2score += 1;
+          $("#player2-score").html("score: " + player2score);
           //prevents further moves on the board if player 2 wins
           someoneHasWon = 1;
         } 

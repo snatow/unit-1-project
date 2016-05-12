@@ -67,11 +67,15 @@ h1 {
 
 .score-board {
   display: inline-block;
-  border: 1px solid black;
   width: 225px;
 }
 
 #score-holder {
   margin-left: 30%;
   margin-top: 10px;
+}
+
+h3 {
+  text-align: center;
+  text-decoration: underline;
 }
