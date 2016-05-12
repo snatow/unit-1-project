@@ -122,3 +122,9 @@ p {
   80% {transform: translate(0px, 200px) rotate(180deg); color: black;}
   100% {transform: translate(0px, 0px) rotate(0deg); color: gold;}
 }
+
+#footer {
+  display: block;
+  margin-left: 2%;
+  margin-top: 32%;
+}
