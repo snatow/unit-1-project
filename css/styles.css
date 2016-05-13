@@ -124,7 +124,10 @@ p {
 }
 
 #footer {
-  display: block;
-  margin-left: 2%;
-  margin-top: 32%;
+  /*display: block;*/
+  /*margin-left: 2%;*/
+  /*margin-top: 32%;*/
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
 }

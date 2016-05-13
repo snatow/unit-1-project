@@ -202,7 +202,7 @@ $(document).ready(function () {
       $(".col").click($gamePlay);
     }
     someoneHasWon = 0;
-  })
+  });
 
 
   //===============================================================================
@@ -222,7 +222,7 @@ $(document).ready(function () {
       // console.log($columnReverse[0]);
       // puts into action moves for player 2 (all even turns)
       if ($click%2 === 0) {
-        $("h1").html($player1 + ", it's your turn")
+        $("h1").html($player1 + ", it's your turn");
         for (var i = 0; i < columnReverse.length; i++) {
           // accounts for cells already containing player avatars
           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
@@ -240,7 +240,7 @@ $(document).ready(function () {
           }
         }
       } else if ($click%2 !==0 ) {
-        $("h1").html($player2 + ", it's your turn")
+        $("h1").html($player2 + ", it's your turn");
         for (var j = 0; j < columnReverse.length; j++) {
           // console.log($columnReverse[j]);
           // accounts for cells already containing player avatars
@@ -272,7 +272,7 @@ $(document).ready(function () {
     } else {
       var columnReverse = $(this).children("div").get().reverse();
       if ($click%2 === 0) {
-        $("h1").html($player1 + ", it's your turn")
+        $("h1").html($player1 + ", it's your turn");
         for (var i = 0; i < columnReverse.length; i++) {
           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
           } else {
@@ -287,7 +287,7 @@ $(document).ready(function () {
           }
         }
       } else if ($click%2 !==0 ) {
-        $("h1").html($player2 + ", it's your turn")
+        $("h1").html($player2 + ", it's your turn");
         for (var j = 0; j < columnReverse.length; j++) {
           if ($(columnReverse[j]).hasClass("player1") || $(columnReverse[j]).hasClass("player2")) {
           } else {
@@ -321,7 +321,7 @@ $(document).ready(function () {
     if (element.hasClass("player2")) {
       return true;
     }
-  }
+  };
 
   //more efficient win check - uses 20 lines of code vs. 424 for the long version
   var $winCheck = function() {
@@ -398,41 +398,191 @@ $(document).ready(function () {
 });
 
 //===============================================================================
-//first stab at an AI
+//first stab at an AI - this is all theoretical, I did not have time to test this
+//this assumes that the human player goes first
 
-var $computerMove = function () {
-  var selector = Math.floor(Math.random() * 8);
-  switch (selector) {
-    case 0:
-      something
-      break;
-    case 1:
-      something
-      break;
-    case 2:
-      something
-      break;
-    case 3: 
-      something
-      break;
-    case 4:
-      something
-      break;
-    case 5:
-      something
-      break;
-    case 6:
-      something
-      break;
-    case 7:
-      something
-      break;
-    default:
-      nothing
-      
-  }
-}
+// var $playerMove = function() {
+//   $click += 1;
+//   if (someoneHasWon == 1) {
+//   } else {
+//     var columnReverse = $(this).children("div").get().reverse();
+//     for (var i = 0; i < columnReverse.length; i++) {
+//       if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//       } else {
+//         $(columnReverse[i]).addClass("player1");
+//         //this is the big difference between gamePlay1 and gamPlay2
+//         $winCheck();
+//         if (i == 5) {
+//           $(this).unbind("click");
+//           $(this).addClass("full");
+//         }
+//         break;
+//       }
+//     }
+//   }
+// };
 
+// var $computerMove = function() {
+//   var selector = Math.floor(Math.random() * 7);
+//   if (someoneHasWon == 1) {
+//   } else {
+//     switch (selector) {
+//       case 0:
+//         var columnReverse = $("#colA").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 1:
+//         var columnReverse = $("#colB").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 2:
+//         var columnReverse = $("#colC").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 3: 
+//         var columnReverse = $("#colD").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 4:
+//         var columnReverse = $("#colE").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 5:
+//         var columnReverse = $("#colF").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       case 6:
+//         var columnReverse = $("#colG").children("div").get().reverse();
+//         for (var i = 0; i < columnReverse.length; i++) {
+//           if ($(columnReverse[i]).hasClass("player1") || $(columnReverse[i]).hasClass("player2")) {
+//           } else {
+//             $(columnReverse[i]).addClass("player2");
+//             //this is the big difference between gamePlay1 and gamPlay2
+//             $winCheck();
+//             if (i == 5) {
+//               $(this).unbind("click");
+//               $(this).addClass("full");
+//             }
+//             break;
+//           }
+//         }
+//         break;
+//       default:
+//         console.log("you need to play on the board");
+//     }
+//   }
+// };
+
+// var $winCheck = function() {
+//   //no reason to check for a win if only 6 pieces are in play - you need at least 7 moves to meet a win condition
+//   if ($click < 4) {
+//     //checking for a win after 7 moves
+//   } else if (3< $click && $click < 21) {
+//     //iterating through the multidimentional array that houses all of the winning condition arrays
+//     for (var i = 0; i < $allPossibleWins.length; i++) {
+//       // console.log($allPossibleWins[i]);
+//       //using filter and the functions defined above to see how long the arrays of moves containing the individual players avatars are 
+//       var $winnerPlayer1 = $allPossibleWins[i].filter($containsP1).length;
+//       var $winnerPlayer2 = $allPossibleWins[i].filter($containsP2).length;
+//       //if either array has a length of 4, all elements in the array have that player's avatar, and there is a win
+//       if ($winnerPlayer1 == 4) {
+//         $("h1").html($player1 + " has won!").addClass("winning");
+//         player1score += 1;
+//         $("#player1-score").html("score: " + player1score);
+//         //prevents further moves on the board if player 1 wins
+//         someoneHasWon = 1;
+//       } else if ($winnerPlayer2 == 4) {
+//         $("h1").html($player2 + " has won!").addClass("winning");
+//         player2score += 1;
+//         $("#player2-score").html("score: " + player2score);
+//         //prevents further moves on the board if player 2 wins
+//         someoneHasWon = 1;
+//       } 
+//     }
+//     //if all of the pieces are in play and there is no win, you have a tie
+//   } else if (20 < $click) {
+//     //there are only 42 possible moves, so if there are no win conditions found before 42 turns, the game ends in a tie
+//     $("h1").html("The players have tied");
+//   }
+// };
+
+// $(".col").click(
+//   $playerMove;
+//   $winCheck;
+//   $computerMove;
+//   $winCheck;);
 //===============================================================================
 //JUNK CODE
 
